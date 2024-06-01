@@ -19,3 +19,17 @@ k
 build.gradle,f\0\f07866736216be0ee2aba49e392191aeae700a35
 F
 app/proguard-rules.pro,9\e\9e08934d811afe28fbc77aaa3c0d747b94348db9
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+z
+Japp/src/main/java/com/deyang/memomate/tools/ServiceConnectionCallback.java,f\b\fb6609486256df1ee8bd9d8e785c3360896f8137
+q
+Aapp/src/main/java/com/deyang/memomate/tools/CustomTabsHelper.java,f\1\f10ea518af494eff6a46ac7647523d1b5d04b748
+j
+:app/src/main/java/com/deyang/memomate/tools/CTIHelper.java,1\b\1b85f700542f6a5d568792ced21dd65b0647d6de
+q
+Aapp/src/main/java/com/deyang/memomate/tools/KeepAliveService.java,8\1\81703557e404c1d7aad88ad601b5db67bdc788ae
+r
+Bapp/src/main/java/com/deyang/memomate/tools/ServiceConnection.java,9\f\9f65d1e62593ae66fe326aff76cb745f20377756
+x
+Happ/src/main/java/com/deyang/memomate/tools/ActionBroadcastReceiver.java,1\3\132cc4ff0af18e69e743e554d5d64e8e8f5fe0d2

@@ -1,5 +1,5 @@
 
- 
-java:S1450"]Remove the "inAppPromotion" field and declare it as a local variable in the relevant methods.(ğ‚Ÿ’8ïã¾ğû1J$5fb2af73-3a3d-4744-8035-ac234393c9ad
+k
+java:S1604^"(Make this anonymous inner class a lambda(øÆ‰¤8ó¾¢ı1J$9a824ad0-98e6-487f-96e9-e714761669be
 £
-java:S1450"[Remove the "promotionURL" field and declare it as a local variable in the relevant methods.(ı¬ËÆúÿÿÿÿ8Ö¸¼ğû1J$9321036a-e74c-4047-b049-27a4c4e68404
+java:S1450"[Remove the "promotionURL" field and declare it as a local variable in the relevant methods.(ı¬ËÆúÿÿÿÿ8‰À¢ı1J$e15f5fe6-9b7e-495e-8c9a-be0d54708bf5

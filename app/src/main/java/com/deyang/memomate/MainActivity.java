@@ -1,6 +1,6 @@
 package com.deyang.memomate;
 
-import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -16,7 +16,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -54,12 +53,9 @@ public class MainActivity extends AppCompatActivity {
         noteList = new ArrayList<>();
         filteredNoteList = new ArrayList<>();
 
-        saveButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                saveNote();
-                displayNotes(noteList);
-            }
+        saveButton.setOnClickListener(view -> {
+            saveNote();
+            displayNotes(noteList);
         });
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -105,16 +101,13 @@ public class MainActivity extends AppCompatActivity {
      * @param notes The list of {@code Note} objects to be sorted.
      */
     private void sortNotesByPinStatus(List<Note> notes) {
-        Collections.sort(notes, new Comparator<Note>() {
-            @Override
-            public int compare(Note n1, Note n2) {
-                if (n1.isPinned() &&!n2.isPinned()) {
-                    return -1;
-                } else if (!n1.isPinned() && n2.isPinned()) {
-                    return 1;
-                } else {
-                    return 0;
-                }
+        Collections.sort(notes, (n1, n2) -> {
+            if (n1.isPinned() &&!n2.isPinned()) {
+                return -1;
+            } else if (!n1.isPinned() && n2.isPinned()) {
+                return 1;
+            } else {
+                return 0;
             }
         });
     }
@@ -194,29 +187,16 @@ public class MainActivity extends AppCompatActivity {
 
         pinButton.setText(note.isPinned()? "Unpin" : "Pin");
 
-        pinButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                note.setIsPinned(!note.isPinned());
-                pinButton.setText(note.isPinned()? "Unpin" : "Pin");
-                saveNotesToPreferences();
-                displayNotes(noteList);
-            }
+        pinButton.setOnClickListener(v -> {
+            note.setIsPinned(!note.isPinned());
+            pinButton.setText(note.isPinned()? "Unpin" : "Pin");
+            saveNotesToPreferences();
+            displayNotes(noteList);
         });
 
-        editButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showEditDialog(note);
-            }
-        });
+        editButton.setOnClickListener(v -> showEditDialog(note));
 
-        deleteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showDeleteDialog(note);
-            }
-        });
+        deleteButton.setOnClickListener(v -> showDeleteDialog(note));
 
         notesContainer.addView(noteView);
     }
@@ -240,25 +220,17 @@ public class MainActivity extends AppCompatActivity {
 
         builder.setView(viewInflated);
 
-        builder.setPositiveButton("Save", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                String newTitle = titleEditText.getText().toString();
-                String newContent = contentEditText.getText().toString();
-                if (!newTitle.isEmpty() && !newContent.isEmpty()) {
-                    note.setTitle(newTitle);
-                    note.setContent(newContent);
-                    saveNotesToPreferences();
-                    filterNotes(searchView.getQuery().toString());
-                }
+        builder.setPositiveButton("Save", (dialog, which) -> {
+            String newTitle = titleEditText.getText().toString();
+            String newContent = contentEditText.getText().toString();
+            if (!newTitle.isEmpty() && !newContent.isEmpty()) {
+                note.setTitle(newTitle);
+                note.setContent(newContent);
+                saveNotesToPreferences();
+                filterNotes(searchView.getQuery().toString());
             }
         });
-        builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                dialog.cancel();
-            }
-        });
+        builder.setNegativeButton("Cancel", (dialog, which) -> dialog.cancel());
 
         builder.show();
     }
@@ -272,12 +244,7 @@ public class MainActivity extends AppCompatActivity {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Delete this note");
         builder.setMessage("Are you sure you want to delete this note?");
-        builder.setPositiveButton("Delete", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                deleteNoteAndRefresh(note);
-            }
-        });
+        builder.setPositiveButton("Delete", (dialogInterface, i) -> deleteNoteAndRefresh(note));
         builder.setNegativeButton("Cancel", null);
         builder.show();
     }
@@ -295,7 +262,7 @@ public class MainActivity extends AppCompatActivity {
             filterNotes(searchView.getQuery().toString());
         } catch (Exception e) {
             e.printStackTrace();
-            Log.e("DeleteNote", "Error deleting note: " + e.getMessage());
+            //Log.e("DeleteNote", "Error deleting note: " + e.getMessage());
         }
     }
 

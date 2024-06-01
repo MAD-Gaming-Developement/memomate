@@ -7,13 +7,13 @@
     android:layout_height="match_parent"
     tools:context=".EventPromotion">
 
-
+    <!--
     <com.deyang.memomate.GlobalWebSetting
         android:id="@+id/promotionView"
         class="dev.shawn.GlobalSettings"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="Shows and In-App Event Promotion when Available for the User"
-        />
+        /> -->
 
 </RelativeLayout>
