@@ -1,0 +1,19 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Transparent color with alpha value -->
+    <solid android:color="#80FFFFFF"/> <!-- 80 is the alpha value (50% transparency) -->
+
+    <!-- Rounded corners -->
+    <corners android:radius="16dp"/>
+
+    <!-- Padding -->
+    <padding
+        android:left="16dp"
+        android:top="16dp"
+        android:right="16dp"
+        android:bottom="16dp"/>
+
+    <!-- Stroke (border) -->
+    <stroke
+        android:width="5dp"
+        android:color="#E91E63"/>
+</shape>

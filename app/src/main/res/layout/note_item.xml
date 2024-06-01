@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="18dp"
+    android:background="@drawable/note_bg"
+    android:layout_marginBottom="8dp"> <!-- Added margin bottom to create space between each note box -->
+
+    <TextView
+        android:id="@+id/TitleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#000000" />
+
+    <!-- Add line separator -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#FF4162" /> <!-- Customize color and height as needed -->
+
+    <TextView
+        android:id="@+id/contentTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="#000000" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <Button
+            android:id="@+id/editButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.67"
+            android:text="Edit"
+            android:textColor="#000000"
+            android:backgroundTint="#FF4162"/>
+
+        <Button
+            android:id="@+id/deleteButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight=".7"
+            android:text="Delete"
+            android:textColor="#000000"
+            android:backgroundTint="#FF4162"/>
+
+        <Button
+            android:id="@+id/pinButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pin"
+            android:textColor="#000000"
+            android:backgroundTint="#FF4162"/>
+
+    </LinearLayout>
+</LinearLayout>
